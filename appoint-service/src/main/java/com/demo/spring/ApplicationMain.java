@@ -1,7 +1,5 @@
 package com.demo.spring;
 
-import com.demo.spring.entity.Appointment;
-import com.demo.spring.services.AppointmentService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

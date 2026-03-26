@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+
+
 @RequestMapping("/appointments")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:8087")
 public class AppointmentController {
 
     private final AppointmentService appointmentService;
@@ -18,7 +20,7 @@ public class AppointmentController {
         this.appointmentService = appointmentService;
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="/",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Appointment>> getAllAppointments() {
         return ResponseEntity.ok(appointmentService.getAllAppointments());
     }
@@ -28,13 +30,13 @@ public class AppointmentController {
         return ResponseEntity.ok(appointmentService.getOneAppointment(id));
     }
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PostMapping(path="/",consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Appointment> createAppointment(@RequestBody Appointment appointment) {
         return ResponseEntity.ok(appointmentService.save(appointment));
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PutMapping(path="/",consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Appointment> updateAppointment(@RequestBody Appointment appointment) {
         return ResponseEntity.ok(appointmentService.update(appointment));
