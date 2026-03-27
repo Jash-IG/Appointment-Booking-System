@@ -1,0 +1,12 @@
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+input, select {
+  padding: 6px;
+  width: 220px;
+}
+label {
+  display: inline-block;
+  width: 110px;
+}
